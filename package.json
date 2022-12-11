@@ -1,0 +1,27 @@
+{
+  "name": "code-3",
+  "version": "1.0.0",
+  "description": "Code challenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Musyoki-Wambua/code-3.git"
+  },
+  "keywords": [
+    "Array",
+    "itteration",
+    "DOM",
+    "Events",
+    "Server",
+    "communications"
+  ],
+  "author": "Joseph Wambua",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Musyoki-Wambua/code-3/issues"
+  },
+  "homepage": "https://github.com/Musyoki-Wambua/code-3#readme"
+}
