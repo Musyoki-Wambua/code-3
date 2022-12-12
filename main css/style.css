@@ -1,0 +1,18 @@
+body{
+  background: grey;
+}
+#filmTitle{
+  text-align: center;
+}
+#showingTitle{
+  text-align: center;
+
+}
+#headTitle{
+  text-align: center;
+}
+#mviedet{
+  list-style: none;
+}
+/* #runtime{
+  background-color: rgb(0, 92, 0);

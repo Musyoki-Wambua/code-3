@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./main css/bootstrap.css">
+    <link rel="stylesheet" href="./main css/style.css">
+    <title>Flatdango Cinemas</title>
+</head>
+
+<body>
+
+
+    <nav class="navbar bg-dark">
+        <div class="container-fluid text-bg-dark d-flex ">
+            <h2 class="text-light" id="headTitle">FLATDANGO MOVIES</h2>
+            <form class="d-flex">
+                <input class="form-control" type="text" placeholder="search movie title" id="search">
+                <button class="btn btn-outline-info ms-1" id="searchBtn">SEARCH</button>
+            </form> 
+        </div>
+    </nav>
+    <div class="container mt-5" style="background-color: greenyellow;"  id="movies">
+            <div class="row" id="films">
+                <div class="row mt-3" id="block">
+                    <div class="card col-5">
+                        <h2 id="movie-list">MOVIES SHOWING </h2>
+                        <ul class="list" id="movie-showing"></ul>                        
+                    </div>
+                    
+                    <div>
+                        <ul id="sold-out">
+                            <button type="button" class="btn btn-warning" id="buyTicket">Buy Ticket</button>
+
+                        </ul>
+                    </div>
+            </div>      
+    </div>
+    <script type="text/javascript" src="./js/bootstrap.js"></script>
+    <script type="text/javascript" src="./js/index.js"></script>
+
+</body>
+
+</html>
