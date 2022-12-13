@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const url = "https://api.npoint.io/510c66d518c1bf4e7bea/films/0";
+  const url = "http://localhost:3000/films";
   const movieImage = document.getElementById("filmPoster");
   const movieTitle = document.getElementById("filmTitle");
   const movieDescription =document.getElementById("movie-description");
