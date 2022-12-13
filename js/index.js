@@ -1,29 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const url = "http://localhost:3000/films";
-
-  const fetchFirstFilm = () => {
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        renderFirstFilm(data);
-      });
-    fetchFirstFilm();
-  };
+  const url = "https://api.npoint.io/510c66d518c1bf4e7bea/films/0";
+  const movieImage = document.getElementById("filmPoster");
+  const movieTitle = document.getElementById("filmTitle");
+  const movieDescription =document.getElementById("movie-description");
+  const runTime = document.getElementById("runtime");
+  const showTime = document.getElementById("showtime");
+  const availableTickets = document.getElementById("ticket");
 
   
-  const renderFirstFilm = (movie) => {
-    const poster = document.getElementById("filmPoster");
-    poster.src = item.poster;
-
-    movieImage.src = item.poster;
-    movieTitle.innerText = item.title;
-    movieDescription.textContent = item.description;
-    runTime.innerHTML = `Runtime:<span>${item.runtime}</span>`;
-    showTime.innerText = `Showtime: ${item.showtime}`;
-    availableTickets.innerText = `Tickets Available ${item.capacity} -- ${item.tickets_sold}`;
-  };
-
-
 
   const filmDetails = () => {
     fetch(url)
@@ -38,14 +22,9 @@ document.addEventListener("DOMContentLoaded", () => {
           movieList.innerText = item.title;
           list.append(movieList);
 
+
           movieList.addEventListener("click", () => {
-            const movieImage = document.getElementById("filmPoster");
-            const movieTitle = document.getElementById("filmTitle");
-            const movieDescription =
-              document.getElementById("movie-description");
-            const runTime = document.getElementById("runtime");
-            const showTime = document.getElementById("showtime");
-            const availableTickets = document.getElementById("ticket");
+   
 
             movieImage.src = item.poster;
             movieTitle.innerText = item.title;
@@ -57,11 +36,9 @@ document.addEventListener("DOMContentLoaded", () => {
             const buyTicket= document.getElementById("ticketPurchase");
             let ticket = parseInt(item.capacity) - parseInt(item.tickets_sold);
 
-
-
-
-
             buyTicket.addEventListener("click", () => {
+
+              
               if (ticket <= 0) {
                 movieList.innerHTML = `${item.title} <span>SOLD OUT</span>`;
                 availableTickets.innerHTML = `Tickets available: <span>SOLD OUT</span>`;
@@ -91,7 +68,5 @@ document.addEventListener("DOMContentLoaded", () => {
           });
         }
       });
-  };
-
-  filmDetails();
+  };  filmDetails();
 });

@@ -8,6 +8,10 @@ body{
   text-align: center;
 
 }
+.row{
+  height: 100vh;
+  width: 100vh;
+}
 #headTitle{
   text-align: center;
 }
@@ -25,20 +29,4 @@ body{
   margin: auto;
   position: relative; left: 30px;
 }
-.col{
-  height: 50vh;
-  width: 50vh;
-  margin: auto;
-  position: relative; left: 30px;
-}
-#block{
-  height: 50vh;
-  width: 50vh;
-  margin: auto;
-}
-#film-poster{
-  height: 50vh;
-  width: 50vh;
-  object-fit: cover;
-  object-fit: scale-down;
-}
+
