@@ -29,10 +29,16 @@ body{
   height: 50vh;
   width: 50vh;
   margin: auto;
-  position: relative; right: 300px;
+  position: relative; left: 30px;
 }
 #block{
   height: 50vh;
   width: 50vh;
   margin: auto;
+}
+#film-poster{
+  height: 50vh;
+  width: 50vh;
+  object-fit: cover;
+  object-fit: scale-down;
 }

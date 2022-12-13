@@ -9,12 +9,23 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     fetchFirstFilm();
   };
+
+  
   const renderFirstFilm = (movie) => {
     const poster = document.getElementById("filmPoster");
-    poster.src = film.poster;
+    poster.src = item.poster;
+
+    movieImage.src = item.poster;
+    movieTitle.innerText = item.title;
+    movieDescription.textContent = item.description;
+    runTime.innerHTML = `Runtime:<span>${item.runtime}</span>`;
+    showTime.innerText = `Showtime: ${item.showtime}`;
+    availableTickets.innerText = `Tickets Available ${item.capacity} -- ${item.tickets_sold}`;
   };
 
-  const movieDetails = () => {
+
+
+  const filmDetails = () => {
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
@@ -43,8 +54,12 @@ document.addEventListener("DOMContentLoaded", () => {
             showTime.innerText = `Showtime: ${item.showtime}`;
             availableTickets.innerText = `Tickets Available ${item.capacity} -- ${item.tickets_sold}`;
 
-            const buyTicket = document.getElementById("ticketPurchase");
-            let ticket = parseFloat(item.capacity - item.tickets_sold);
+            const buyTicket= document.getElementById("ticketPurchase");
+            let ticket = parseInt(item.capacity) - parseInt(item.tickets_sold);
+
+
+
+
 
             buyTicket.addEventListener("click", () => {
               if (ticket <= 0) {
@@ -75,7 +90,8 @@ document.addEventListener("DOMContentLoaded", () => {
             });
           });
         }
-        movieDetails();
       });
   };
+
+  filmDetails();
 });
