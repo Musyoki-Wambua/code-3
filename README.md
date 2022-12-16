@@ -10,6 +10,10 @@ This is an application that allows users to choose which movie to see and allows
 - User can also see a menu of all movies on the left side of the page.
 - User can purchase a ticket for a movie.
 
+## Live link
+
+                https://musyoki-wambua.github.io/code-3/
+
 ## Development Requirements
 
 - This application was built with the following technologies:
