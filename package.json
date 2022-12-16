@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/Musyoki-Wambua/code-3/issues"
   },
-  "homepage": "https://github.com/Musyoki-Wambua/code-3#readme"
+  "homepage": "https://github.com/Musyoki-Wambua/code-3#readme",
+  "dependencies": {
+    "json-server": "^0.17.1"
+  }
 }

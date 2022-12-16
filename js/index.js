@@ -1,72 +1,70 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const url = "http://localhost:3000/films";
-  const movieImage = document.getElementById("filmPoster");
-  const movieTitle = document.getElementById("filmTitle");
-  const movieDescription =document.getElementById("movie-description");
-  const runTime = document.getElementById("runtime");
-  const showTime = document.getElementById("showtime");
-  const availableTickets = document.getElementById("ticket");
 
-  
+  function fetchFilms(films) {
+    fetch('http://localhost:3000/films')
+    .then(resp => resp.json())
+  //  .then(data =>  console.log(data) )
+    .then ((data) =>  {
+      data.forEach(renderFilms);
 
-  const filmDetails = () => {
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        for (let i = 0; i < data.length; i++) {
-          let item = data[i];
-          const movieList = document.createElement("li");
-          const list = document.getElementById("movie-showing");
-          movieList.classList.add("list");
-          movieList.style.cursor = "pointer";
-          movieList.innerText = item.title;
-          list.append(movieList);
+    })
+  }fetchFilms()
+
+   function renderFilms (movie) {
+      const list = document.getElementById('movie-showing')
+      const movieList = document.createElement('li')
+      movieList.classList.add('list')
+      movieList.style.cursor = 'pointer'
+      movieList.innerText = movie.title;
+      list.append(movieList)
+      movieList.addEventListener('click', () => {
+        movieSelected = movie;
+        showMovie (movie)
+   })
+ }
+
+ function showMovie(movie) {
+  const movieTitle = document.getElementById('filmTitle')
+  movieTitle.innerHTML = movie.title
+  const movieImg = document.getElementById('filmPoster');
+  movieImg.src = movie.poster
+  const movieDescription = document.getElementById('movie-description')
+  movieDescription.innerText = movie.description
+  const movieRuntime = document.getElementById ('runtime')
+  movieRuntime.innerHTML = `Runtime: ${movie.runtime} minutes `
+  const movieShowtime = document.getElementById ('showtime')
+  movieShowtime.innerHTML = `Showtime: ${movie.showtime}`
+  const movieCapacity = document.getElementById ('capacity')
+  movieCapacity.innerHTML = `Capacity: ${movie.capacity}`
+  const movieTicket = document.getElementById ('ticket')
+  movieTicket.innerHTML = `Tickets Sold: ${movie.tickets_sold}`
+  const availableTickets = document.getElementById('ticketAvailable')
+  const remainingTicktes = movie.capacity - movie.tickets_sold
+  availableTickets.innerHTML = `Available Tickets: ${remainingTicktes}`
+ 
+  const btn = document.getElementById ('ticketPurchase')
+  btn.addEventListener ('click', (event) => {
+  event.preventDefault()
+  //console.log('click')
+  })
+  console.log (availableTickets)
+
+} 
+//BUY A MOVIE TICKET
+ 
+ function ticketBuy (movie) {
+  const btn = document.getElementById ('ticketPurchase')
+
+   if (availableTickets > 0){
+     availableTickets --;
+     movieTicket = movie.tickets_sold + 1;
+     console.log (availableTickets)
+   }else {
+     alert('MOVIE TICKETS SOLD OUT')
+     btn.textContent = "SOLD OUT!"
+   }
+ } ticketBuy()
 
 
-          movieList.addEventListener("click", () => {
-   
 
-            movieImage.src = item.poster;
-            movieTitle.innerText = item.title;
-            movieDescription.textContent = item.description;
-            runTime.innerHTML = `Runtime:<span>${item.runtime}</span>`;
-            showTime.innerText = `Showtime: ${item.showtime}`;
-            availableTickets.innerText = `Tickets Available ${item.capacity} -- ${item.tickets_sold}`;
-
-            const buyTicket= document.getElementById("ticketPurchase");
-            let ticket = parseInt(item.capacity) - parseInt(item.tickets_sold);
-
-            buyTicket.addEventListener("click", () => {
-
-              
-              if (ticket <= 0) {
-                movieList.innerHTML = `${item.title} <span>SOLD OUT</span>`;
-                availableTickets.innerHTML = `Tickets available: <span>SOLD OUT</span>`;
-              } else {
-                availableTickets.innerText = `Tickets available: (${ticket})`;
-              }
-              availableTickets.innerText = `Tickets available: ${ticket}`;
-              while (ticket > -1) {
-                availableTickets.innerText = `Tickets available: ${ticket}`;
-                if (ticket === 0) {
-                  return (availaTickets.innerText = "SOLD OUT");
-                }
-              }
-
-              if (ticket === 0) {
-                return (availableTickets.innerText = "SOLD OUT");
-              }
-
-              for (let i = ticket; i > -1; i -= 1) {
-                const ticketRemain = i;
-                availableTickets.innerText = `Tickets available: ${ticketRemain}`;
-                if (ticketRemain === 0) {
-                  availableTickets.innerText = "SOLD OUT";
-                }
-              }
-            });
-          });
-        }
-      });
-  };  filmDetails();
 });
