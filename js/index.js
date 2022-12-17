@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   function fetchFilms() {
-    fetch('http://localhost:3000/films')
+    fetch('https://api.npoint.io/2ebb39869075f4ed307a/why/0')
       .then(resp => resp.json())
       .then((data) => {
         data.forEach(movie => renderFilms(movie));
