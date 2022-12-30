@@ -12,7 +12,7 @@ This is an application that allows users to choose which movie to see and allows
 
 ## Live link
 
-                https://musyoki-wambua.github.io/code-3/
+- [Click here]( https://musyoki-wambua.github.io/code-3/)
 
 ## Development Requirements
 
