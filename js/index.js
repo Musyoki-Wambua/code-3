@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   function fetchFilms() {
-    fetch("  http://localhost:3000/films")
+    fetch("https://api.npoint.io/ca25aba3353984d3fa75/films")
       .then((resp) => resp.json())
       .then((data) => {
         for(let i = 0; i < data.length; i++) {
