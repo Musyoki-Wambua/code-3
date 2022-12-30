@@ -50,6 +50,6 @@ This is an application that allows users to choose which movie to see and allows
 
             json-server --watch db.json
 
-- You can test the server by visiting this route in the browser: 
+- You can test the server by visiting this route in the browser:
 
         http://localhost:3000/films

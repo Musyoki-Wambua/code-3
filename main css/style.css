@@ -29,7 +29,14 @@ body{
   margin: auto;
   position: relative; left: 30px;
 }
-/* .list-group-items {
-  
-} */
-
+#block {
+  height: 50%;
+  width: 50%;
+  display: flex;
+  object-fit: contain;
+}
+#filmPoster {
+  height: 50%;
+  width: 50%;
+  display: flex;
+}
